@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         container.forEach(container => {
             container.innerHTML = '';  
-            const containerWidth = container.offsetWidth;
+            const containerWidth = container.clientWidth;
             let repeatCount = Math.floor(0.9 * containerWidth * (1 - Math.floor(containerWidth / imageWidth) / 100) / imageWidth);
 
             // console.log("Repeat Count:", repeatCount);
