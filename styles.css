@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap');
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -15,6 +15,8 @@ html, body {
 
 h2 {
     font-size: clamp(1.6rem, 2.5vmin, 3.5rem);
+    font-family: "Bebas Neue";
+    
 }
 
 h3 {
@@ -23,6 +25,7 @@ h3 {
 
 p {
     font-size: clamp(1.1rem, 1.5vmin, 2.4rem);
+    font-family: Georgia;
 }
 
 .header {
@@ -235,7 +238,7 @@ p {
     }
 
     .top-nav-options p {
-        font-size: 12px;
+        font-size: clamp(0.7rem, 1.2vmin, 1.5rem);
     }
 
     .body-container {
@@ -323,7 +326,7 @@ p {
 }
 
 /* Mobile View */
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 767px) {
     body {
         flex-direction: column;
     }
