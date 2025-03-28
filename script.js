@@ -1,30 +1,28 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const container = document.querySelectorAll('.motif-row');
-    // console.log("motif-row container:", container);
+    const images = document.querySelectorAll(".clickable-img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".close");
 
-    function renderImages() {
-        const imageWidth = 100;
-
-        container.forEach(container => {
-            container.innerHTML = '';  
-            const containerWidth = container.clientWidth;
-            let repeatCount = Math.floor(0.9 * containerWidth * (1 - Math.floor(containerWidth / imageWidth) / 100) / imageWidth);
-
-            // console.log("Repeat Count:", repeatCount);
-            
-            for (let i = 0; i < repeatCount; i++) {
-                const img = document.createElement('img');
-                img.src = './assets/motif.jpg';
-                img.alt = 'Motif';
-                img.style.width = `${imageWidth}px`;
-                img.style.height = 'auto';
-                container.appendChild(img);
-            }
-
-            // console.log("Image count in motif-row:", container.children.length); 
+    lightbox.style.display = "none";
+    images.forEach(img => {
+        img.addEventListener("click", function () {
+            lightbox.style.display = "flex";
+            lightboxImg.src = img.src;
+            document.body.classList.add("no-scroll");
         });
+    });
+
+    function closeLightbox() {
+        lightbox.style.display = "none";
+        document.body.classList.remove("no-scroll"); 
     }
-        
-    renderImages();
-    window.addEventListener('resize', renderImages);
+
+    closeBtn.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", function (e) {
+        if (e.target !== lightboxImg) {
+            lightbox.style.display = "none";
+        }
+    });
 });
